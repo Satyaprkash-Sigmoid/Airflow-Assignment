@@ -25,16 +25,6 @@ dag = DAG("Assignment", default_args=default_args, schedule_interval="0 6 * * *"
 
 t1 = PythonOperator(task_id='Write_into_csv', python_callable=write_csv, dag=dag)
 
-create_table = """CREATE TABLE weather(
-    STATE VARCHAR,
-    DESCRIPTION varchar,
-    TEMPERATURE decimal,
-    FEELS_LIKE_TEMPERATURE decimal,
-    MIN_TEMP decimal,
-    MAX_TEMP decimal,
-    HUMIDITY numeric,
-    CLOUDS numeric)"""
-
 t2 = PythonOperator(task_id="create_table", python_callable=create_weather_table, dag=dag)
 
 t3 = PythonOperator(task_id="read_csv_load_data", python_callable=read_and_load_csv, dag=dag)
