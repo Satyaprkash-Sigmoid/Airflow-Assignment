@@ -37,6 +37,6 @@ create_table = """CREATE TABLE weather(
 
 t2 = PythonOperator(task_id="create_table", python_callable=create_weather_table, dag=dag)
 
-# t3 = PythonOperator(task_id="read_csv_load_data", python_callable=read_and_load_csv, dag=dag)
+t3 = PythonOperator(task_id="read_csv_load_data", python_callable=read_and_load_csv, dag=dag)
 
-t1 >> t2
+t1 >> t2 >> t3
