@@ -21,7 +21,7 @@ default_args = {
     # 'end_date': datetime(2016, 1, 1),
 }
 
-dag = DAG("Assignment", default_args=default_args, schedule_interval=timedelta(1))
+dag = DAG("Assignment", default_args=default_args, schedule_interval="0 6 * * *")
 
 t1 = PythonOperator(task_id='Write_into_csv', python_callable=write_csv, dag=dag)
 
