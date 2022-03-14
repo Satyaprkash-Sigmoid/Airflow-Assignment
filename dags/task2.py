@@ -24,18 +24,18 @@ def create_weather_table():
 
         print("Table Created successfully")
 
-        insert_query = "Insert into weather (STATE, DESCRIPTION, TEMPERATURE, FEELS_LIKE_TEMPERATURE,MIN_TEMP, " \
-                       "MAX_TEMP,HUMIDITY,CLOUDS) values (%s,%s,%s,%s,%s,%s,%s,%s)"
-
-        for index, row in df.iterrows():
-            print("added..")
-            cursor.execute(insert_query, (
-                row['State'], row['Description'], row['Temperature'], row['Feels_Like_Temperature']
-                , row['Min_Temperature'], row['Max_Temperature'], row['Humidity'], row['Clouds']))
-
-        conn.commit()
-
-        print("values are Inserted successfully")
+        # insert_query = "Insert into weather (STATE, DESCRIPTION, TEMPERATURE, FEELS_LIKE_TEMPERATURE,MIN_TEMP, " \
+        #                "MAX_TEMP,HUMIDITY,CLOUDS) values (%s,%s,%s,%s,%s,%s,%s,%s)"
+        #
+        # for index, row in df.iterrows():
+        #     print("added..")
+        #     cursor.execute(insert_query, (
+        #         row['State'], row['Description'], row['Temperature'], row['Feels_Like_Temperature']
+        #         , row['Min_Temperature'], row['Max_Temperature'], row['Humidity'], row['Clouds']))
+        #
+        # conn.commit()
+        #
+        # print("values are Inserted successfully")
 
     except:
         print("Error in connection")
