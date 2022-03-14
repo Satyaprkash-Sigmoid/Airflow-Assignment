@@ -27,6 +27,6 @@ t1 = PythonOperator(task_id='Write_into_csv', python_callable=write_csv, dag=dag
 
 t2 = PythonOperator(task_id="create_table", python_callable=create_weather_table, dag=dag)
 
-t3 = PythonOperator(task_id="read_csv_load_data", python_callable=read_and_load_csv, dag=dag)
+# t3 = PythonOperator(task_id="read_csv_load_data", python_callable=read_and_load_csv, dag=dag)
 
-t1 >> t2 >> t3
+t1 >> t2
