@@ -20,7 +20,7 @@ default_args = {
     # 'priority_weight': 10,
     # 'end_date': datetime(2016, 1, 1),
 }
-
+# setting schedule_interval="0 6 * * *" is task4 of our Assignmet
 dag = DAG("Assignment", default_args=default_args, schedule_interval="0 6 * * *")
 
 t1 = PythonOperator(task_id='Write_into_csv', python_callable=write_csv, dag=dag)
